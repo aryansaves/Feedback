@@ -44,10 +44,16 @@ func main(){
 	flag.Parse()
 	f := flagd{url: *url, c : *c, n : *n}
 	ch := make(chan sf)
+	var res sf
+	var pass, fail int
 	for range *c{
 		go fetch(f, ch)
 	}
-	res := <- ch
-	fmt.Println("failures : %s",res.fail)
-	fmt.Println("success : %s",res.suc)
+	for range *c{
+		res = <- ch
+		pass += res.suc
+		fail += res.fail
+	}
+	fmt.Printf("failures : %d\n",fail)
+	fmt.Printf("success : %d\n",pass)
 }
