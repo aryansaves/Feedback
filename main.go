@@ -10,7 +10,7 @@ func handler(w http.ResponseWriter, r *http.Request){
 	fmt.Fprintln(w, r.Header)
 	time.Sleep(2 * time.Second)
 }
-func ma(){
+func main(){
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 }
