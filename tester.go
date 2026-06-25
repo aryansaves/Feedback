@@ -128,8 +128,8 @@ func main(){
   		if metr.failed {
         continue
     	}
-		ttfbList = append(ttfbList, metr.ttlb)
-		ttlbList = append(ttlbList, metr.ttfb)
+		ttfbList = append(ttfbList, metr.ttfb)
+		ttlbList = append(ttlbList, metr.ttlb)
 		ttList = append(ttList, metr.totaltime)
 	}
 	for range *c{

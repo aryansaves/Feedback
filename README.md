@@ -1,34 +1,30 @@
-Hello ! this is feedback   
-A feedback to your API servers  
-Run benchmarks against your server   
-Load test it and return with stats  
-  
-how to run it u ask ? 😏  
-  
-clone the repo :  
-`git clone https://github.com/aryansaves/Feedback`  
-  
-build the binary :  
-`go build tester.go`  
-  
-test with the mock server provided i.e. main.go  
-  
-Once the binary is created use `./tester {arguement} ...` to run the cli  
-  
-flags : 
--u : provide the singular URL directly 
-for e.g. :  `./tester -u http://localhost:3000/test`
+# feedback
 
--f : provide the url in a file
-for e.g. : `./tester -f filename.txt`
+HTTP load testing CLI — hit one or more endpoints concurrently and get 
+latency breakdowns including Time to First Byte (TTFB) and Time to Last 
+Byte (TTLB), measured at the transport layer via Go's httptrace.
 
--n : number of requests
-for e.g. : `./tester -u http://localhost:3000/test -n 100` defaults to "10" 
-implements round robin when multiple urls in the file provided
+## Install
 
--c : concurrency scale
-for e.g. : `./tester -f filename.txt -c 10` defaults to "5"
+git clone https://github.com/aryansaves/Feedback
+cd Feedback
+go build -o feedback .
 
-![Project Diagram](example.png)
+## Usage
 
-@all the code here in this repo was handwritten 😜
+Single URL:
+./feedback -u http://localhost:3000/test -n 100 -c 10
+
+Multiple URLs from file (round-robin):
+./feedback -f urls.txt -n 100 -c 10
+
+## Flags
+
+-u    target URL
+-f    file with one URL per line
+-n    total requests (default 10)
+-c    concurrent workers (default 5, must be <= n)
+
+## Output
+
+![example.png](example.png)
