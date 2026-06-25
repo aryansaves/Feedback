@@ -5,18 +5,18 @@ latency breakdowns including Time to First Byte (TTFB) and Time to Last
 Byte (TTLB), measured at the transport layer via Go's httptrace.
 
 ## Install
-
+`
 git clone https://github.com/aryansaves/Feedback  
 cd Feedback  
 go build -o feedback .  
-
+`
 ## Usage
 
 Single URL:  
-./feedback -u http://localhost:3000/test -n 100 -c 10  
+`./feedback -u http://localhost:3000/test -n 100 -c 10  `
   
 Multiple URLs from file (round-robin):  
-./feedback -f urls.txt -n 100 -c 10  
+`./feedback -f urls.txt -n 100 -c 10  `
 
 ## Flags
 
