@@ -5,11 +5,11 @@ latency breakdowns including Time to First Byte (TTFB) and Time to Last
 Byte (TTLB), measured at the transport layer via Go's httptrace.
 
 ## Install
-`
-git clone https://github.com/aryansaves/Feedback  
-cd Feedback  
-go build -o feedback .  
-`
+  
+```git clone https://github.com/aryansaves/Feedback```   
+```cd Feedback```   
+```go build -o feedback .```   
+
 ## Usage
 
 Single URL:  
